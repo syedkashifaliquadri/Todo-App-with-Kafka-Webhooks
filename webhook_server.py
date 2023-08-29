@@ -1,10 +1,9 @@
 from flask import Flask, request, jsonify
-import os
 
 app = Flask(__name__)
 
 
-@app.route('/webhook', methods=['POST'])
+@app.route('/api/webhook', methods=['POST'])
 def webhook_handler():
     data = request.json  # Get the JSON data from the request
 

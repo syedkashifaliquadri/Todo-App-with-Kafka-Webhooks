@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "kashif"
+      POSTGRES_DB: "postgres"
+    networks:
+      - app_net
+
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+    depends_on:
+      - postgres
+    networks:
+      - app_net
+
+  flask-app:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      KAFKA_TOPIC: "todo"
+      WEBHOOK_URL: "http://localhost:5000/api/webhook"
+    depends_on:
+      - kafka
+      - postgres
+    networks:
+      - app_net
+
+networks:
+  app_net:
