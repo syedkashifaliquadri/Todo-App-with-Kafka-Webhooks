@@ -1,0 +1,10 @@
+pip==23.2.1
+setuptools==68.0.0
+wheel==0.41.2
+confluent-kafka==2.2.0
+grpcio==1.57.0
+grpcio-tools==1.57.0
+protobuf==4.24.1
+psycopg2-binary==2.9.7
+requests~=2.31.0
+flask~=2.3.3

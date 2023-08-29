@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package todo;
+
+service MyService {
+    rpc CreateData (CreateRequest) returns (Response);
+    rpc ReadData (ReadRequest) returns (Response);
+    rpc UpdateData (UpdateRequest) returns (Response);
+    rpc DeleteData (DeleteRequest) returns (Response);
+}
+
+message CreateRequest {
+    string data = 1;
+}
+
+message ReadRequest {
+    string id = 1;
+}
+
+message UpdateRequest {
+    string id = 1;
+    string data = 2;
+}
+
+message DeleteRequest {
+    string id = 1;
+}
+
+message Response {
+    string reply = 1;
+}
