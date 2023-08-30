@@ -34,9 +34,7 @@ class KafkaConsumer:
                 self.send_to_webhook(event_key, event_value)
 
     def send_to_webhook(self, event_key, event_value):
-        # Replace with your actual webhook URL
         webhook_url = WEBHOOK_URL
-        # Send event details to the webhook URL
         response = requests.post(webhook_url, json={"event_key": event_key, "event_value": event_value})
         print("Webhook response:", response.status_code)
 

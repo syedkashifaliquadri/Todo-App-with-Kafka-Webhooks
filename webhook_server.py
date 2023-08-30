@@ -7,7 +7,6 @@ app = Flask(__name__)
 def webhook_handler():
     data = request.json  # Get the JSON data from the request
 
-    # Process the data as needed
     print("Received webhook data:", data)
 
     return jsonify({"message": "Webhook data received"})

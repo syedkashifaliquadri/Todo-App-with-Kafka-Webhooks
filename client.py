@@ -1,5 +1,5 @@
 import grpc
-from app import todo_pb2, todo_pb2_grpc
+import todo_pb2, todo_pb2_grpc
 import config
 
 

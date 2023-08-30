@@ -1,6 +1,7 @@
 from concurrent import futures
 import grpc
-from app import todo_pb2_grpc, todo_service
+import todo_pb2_grpc
+from app import todo_service
 import config
 
 

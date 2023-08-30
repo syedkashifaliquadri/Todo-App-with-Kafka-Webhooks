@@ -36,5 +36,4 @@ class DBConnector:
         return self.execute_query(query, params)
 
 
-# Instantiate the DBConnector class to use its methods
 db_connector = DBConnector()
