@@ -13,8 +13,8 @@ class DBConnector:
             cursor.execute(query, params)
             try:
                 return cursor.fetchall()
-            except:
-                return str(params)
+            except Exception as e:
+                return str(e)
 
     def get_all_tasks(self):
         query = sql.SQL("SELECT * FROM users;")

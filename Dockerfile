@@ -5,19 +5,10 @@ FROM python:3.9
 WORKDIR /app
 
 # Copy the application code into the container at /app
-COPY app /app/
+COPY . .
 
-# Install gRPC dependencies
-RUN pip install grpcio grpcio-tools
-
-# Install Kafka dependencies
-RUN pip install confluent-kafka
-
-# Install PostgreSQL client
-RUN pip install psycopg2-binary
-
-# Install Flask dependencies
-RUN pip install flask
+# Install Requirements
+RUN pip install -r requirements.txt
 
 # Expose port for gRPC server
 EXPOSE 50051

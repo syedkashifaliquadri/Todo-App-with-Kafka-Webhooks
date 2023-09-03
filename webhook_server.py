@@ -5,11 +5,14 @@ app = Flask(__name__)
 
 @app.route('/api/webhook', methods=['POST'])
 def webhook_handler():
-    data = request.json  # Get the JSON data from the request
+    try:
+        data = request.json if request else None
 
-    print("Received webhook data:", data)
+        print("Received webhook data:", data)
 
-    return jsonify({"message": "Webhook data received"})
+        return jsonify({"message": "Webhook data received"})
+    except Exception as e:
+        return jsonify({"Error": str(e)})
 
 
 if __name__ == '__main__':

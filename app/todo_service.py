@@ -7,7 +7,6 @@ import psycopg2
 
 class MyServicer(todo_pb2_grpc.MyServiceServicer):
     def __init__(self):
-        self.data_store = {}  # A simple in-memory data store
         self.connection = psycopg2.connect(
             user="postgres",
             password="kashif",
